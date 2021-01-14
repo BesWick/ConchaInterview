@@ -1,0 +1,13 @@
+input[type=range]{
+    -webkit-appearance: slider-vertical;
+	writing-mode: bt-lr;
+}
+
+
+
+
+
+.col{
+    display:flex;
+    flex-direction: column;
+}
