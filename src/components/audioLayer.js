@@ -20,56 +20,31 @@
 //Phase 2: pass audio to web audio
 import starwar from '../assets/starwars.wav'
 import React, { useEffect, useRef, useState } from 'react'
-import Audio from './Audio'
 import './audioLayer.css'
 
+const context = new (window.AudioContext || window.webkitAudioContext)()
+const masterGainNode = context.createGain()
+
 function AudioLayer() {
-    // const audioContext = new (window.AudioContext ||
-    //     window.webkitAudioContext)()
-    // const gainNode = audioContext.createGain()
-
     const audioElement = useRef()
-
-    // const track = autoctx.createMediaElementSource(audioElement)
 
     //set state to represent initial value of masterGainNode
     const [masterGainValue, setMasterGainValue] = useState(0)
 
     const initializeMasterGain = () => {
-        const track = Audio.context.createMediaElementSource(
-            audioElement.current,
-        )
+        const track = context.createMediaElementSource(audioElement.current)
         // Connect the masterGainNode to the audio context to allow it to output sound.
-        track.connect(Audio.masterGainNode)
-        Audio.masterGainNode.connect(Audio.context.destination)
-
-        // Set masterGain Value to 0
-        Audio.masterGainNode.gain.setValueAtTime(0, Audio.context.currentTime)
+        track.connect(masterGainNode)
+        masterGainNode.connect(context.destination)
+        masterGainNode.gain.value = 0
     }
-
-    // const initializeMasterGain = () => {
-    //      track = audioContext.createMediaElementSource(
-    //         audioElement.current,
-    //     )
-    //     // Connect the masterGainNode to the audio context to allow it to output sound.
-    //     //  gainNode.connect(audiocontext.destination)
-    //     track.connect(gainNode).connect(audioContext.destination)
-
-    //     // Set masterGain Value to 0
-    //     gainNode.gain.setValueAtTime(0, audioContext.currentTime)
-    // }
 
     //initialize masterGainNode on first render
     useEffect(initializeMasterGain, [])
 
     const changeMasterVolume = (e) => {
-        Audio.masterGainNode.gain.setValueAtTime(
-            e.target.value,
-            Audio.context.currentTime,
-        )
-        console.log(
-            'GAIN ' + Audio.masterGainNode.gain.value + ' ' + e.target.value,
-        )
+        masterGainNode.gain.value = e.target.value
+        console.log('GAIN ' + masterGainNode.gain.value + ' ' + e.target.value)
         setMasterGainValue(e.target.value)
     }
 
