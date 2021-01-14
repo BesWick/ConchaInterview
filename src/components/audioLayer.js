@@ -43,7 +43,7 @@ function AudioLayer() {
 
         // track.connect(Audio.masterGainNode)
         // Audio.masterGainNode.connect(Audio.context.destination)
-        Audio.masterGainNode.gain.value = 0
+        Audio.masterGainNode.gain.value = 1
     }
 
     //initialize masterGainNode on first render
@@ -66,7 +66,7 @@ function AudioLayer() {
                 </audio>
             </div>
             <div className='sliders'>
-                <div className='col'>
+                {/* <div className='col'>
                     <label htmlFor='fader'>Volume</label>
                     <input
                         type='range'
@@ -79,7 +79,7 @@ function AudioLayer() {
                         orient='vertical'
                     />
                     <div className='num'>{masterGainValue}</div>
-                </div>
+                </div> */}
                 <Filter frequency='&lt;1k' filter={Audio.lowFilter} />
                 <Filter
                     frequency='&ge;1K and &lt;4k'

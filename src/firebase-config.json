@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "result": {
+    "projectId": "conchademo",
+    "storageBucket": "conchademo.appspot.com",
+    "apiKey": "AIzaSyBo-DquUO_amfX2415xlUXL_n4nh6azp8w",
+    "authDomain": "conchademo.firebaseapp.com",
+    "messagingSenderId": "20192520378"
+  }
+}
