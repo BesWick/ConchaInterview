@@ -1,21 +1,3 @@
-// the 3 filters
-// const low = audioCtx.createBiquadFilter()
-// low.type = 'lowshelf'
-// low.frequency.value = 1000.0
-// low.gain.value = 0.0
-// low.connect(this.xfadeGain) //connect to audio soource
-// const mid = audioCtx.createBiquadFilter()
-// mid.type = 'peaking'
-// mid.frequency.value = 2500.0
-// mid.Q.value = 1500.0
-// mid.gain.value = 0.0
-// mid.connect(high)
-// const high = audioCtx.createBiquadFilter()
-// high.type = 'highshelf'
-// high.frequency.value = 4000.0
-// high.gain.value = 0.0
-// high.connect(mid)
-
 //Phase 1; get a audio player
 //Phase 2: pass audio to web audio
 import starwar from '../assets/starwars.wav'
@@ -38,7 +20,7 @@ function AudioLayer() {
 
         Audio.midFilter.type = 'peaking'
         Audio.midFilter.frequency.value = 2500.0
-        Audio.midFilter.Q.value = 1500.0
+        Audio.midFilter.Q.value = 1400.0
         Audio.midFilter.gain.value = 0.0
 
         Audio.highFilter.type = 'highshelf'
@@ -77,7 +59,7 @@ function AudioLayer() {
 
     return (
         <div className='audio'>
-            <div className='pl'>
+            <div className='player'>
                 <audio controls src={starwar} ref={audioElement}>
                     Your browser does not support the
                     <code>audio</code> element.

@@ -1,10 +1,10 @@
 import './App.css'
-import Player from './components/audioLayer'
+import AudioLayer from './components/audioLayer'
 
 function App() {
     return (
         <div className='App'>
-            <Player />
+            <AudioLayer />
         </div>
     )
 }
