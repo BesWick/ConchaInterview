@@ -3,12 +3,9 @@ input[type=range]{
 	writing-mode: bt-lr;
 }
 
-
-.sliders{
-    display:flex;
+.filter{
+    width:150px;
 }
-
-
 
 .col{
     display:flex;
