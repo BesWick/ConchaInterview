@@ -7,7 +7,6 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
 // Styles
 import HeadsetOutlinedIcon from '@material-ui/icons/HeadsetOutlined'
-import HeadsetIcon from '@material-ui/icons/Headset'
 import './App.css' // This uses CSS modules.
 import './firebaseui-styling.global.css' // Import globally.
 import { useState, useEffect } from 'react'
@@ -18,7 +17,9 @@ require('typeface-amaranth')
 const firebaseConfig = require('./firebase-config.json').result
 
 // Instantiate a Firebase app.
-const firebaseApp = firebase.initializeApp(firebaseConfig)
+const firebaseApp = !firebase.apps.length
+    ? firebase.initializeApp(firebaseConfig)
+    : firebase.app()
 
 function App() {
     const [loginUser, setloginUser] = useState(false)
@@ -63,16 +64,24 @@ function App() {
                 )}
                 {loginUser && (
                     <div className='signedIn'>
-                        <p>
-                            Hello {firebaseApp.auth().currentUser.displayName}.
-                            You are now signed In!
-                        </p>
+                        <div className='topBar'>
+                            <p>
+                                Hello{' '}
+                                {firebaseApp.auth().currentUser.displayName}.
+                                You are now signed In!
+                            </p>
+                            <div className='rightSide'>
+                                <a
+                                    className='signoutBtn'
+                                    onClick={() =>
+                                        firebaseApp.auth().signOut()
+                                    }>
+                                    Sign-out
+                                </a>
+                                <a className='signoutBtn'>Users</a>
+                            </div>
+                        </div>
                         <AudioLayer />
-                        <a
-                            className='button'
-                            onClick={() => firebaseApp.auth().signOut()}>
-                            Sign-out
-                        </a>
                     </div>
                 )}
             </div>

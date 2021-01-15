@@ -1,7 +1,7 @@
 //Phase 1; get a audio player
 //Phase 2: pass audio to web audio
 import starwar from '../assets/starwars.wav'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Audio from './AudioNodes'
 import Filter from './filter/filter'
 
@@ -11,7 +11,7 @@ function AudioLayer() {
     const audioElement = useRef()
 
     //set state to represent initial value of masterGainNode
-    const [masterGainValue, setMasterGainValue] = useState(0)
+    // const [masterGainValue, setMasterGainValue] = useState(0)
 
     const initializeFilters = () => {
         Audio.lowFilter.type = 'lowshelf'
@@ -49,18 +49,22 @@ function AudioLayer() {
     //initialize masterGainNode on first render
     useEffect(initializeMasterGain, [])
 
-    const changeMasterVolume = (e) => {
-        Audio.masterGainNode.gain.value = e.target.value
-        console.log(
-            'GAIN ' + Audio.masterGainNode.gain.value + ' ' + e.target.value,
-        )
-        setMasterGainValue(e.target.value)
-    }
+    // const changeMasterVolume = (e) => {
+    //     Audio.masterGainNode.gain.value = e.target.value
+    //     console.log(
+    //         'GAIN ' + Audio.masterGainNode.gain.value + ' ' + e.target.value,
+    //     )
+    //     // setMasterGainValue(e.target.value)
+    // }
 
     return (
         <div className='audio'>
             <div className='player'>
-                <audio controls src={starwar} ref={audioElement}>
+                <audio
+                    controls
+                    src={starwar}
+                    ref={audioElement}
+                    onPlay={() => Audio.context.resume()}>
                     Your browser does not support the
                     <code>audio</code> element.
                 </audio>

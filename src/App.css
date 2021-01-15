@@ -23,12 +23,52 @@
   background: radial-gradient(circle, #039BE5, #01579b);
   color: white;
 }
-.signedIn {
-  display: flex;
-  justify-content: center;
+
+.topBar{
+  display:flex;
+  color:white;
+  letter-spacing: .03em;
+  /* font-size: 14px; */
   align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 41px;
+  background: #000;
+  margin: 0;
+  box-shadow: 0 1px 10px 0 rgba(0,0,0,.08);
+
 }
+a.signoutBtn{
+  /* text-transform: uppercase; */
+  align-self: flex-end;
+  cursor: pointer;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  /* margin:0 0.3em 0.3em 0; */
+  border-radius:5.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+  }
+  
+  a.signoutBtn:hover{
+  color:#000000;
+  background-color:#FFFFFF;
+  }
+  @media all and (max-width:30em){
+   a.signoutBtn{
+  display:block;
+  margin:0.4em auto;
+  }
+  }
+
+
+
+
 .logo {
   font-family: 'Amaranth', sans-serif;
   font-size: 200%;
@@ -64,7 +104,6 @@
 .button {
   cursor: pointer;
   color: blue;
-  text-decoration: underline;
-  margin-top: 10px;
+  margin-left:20px;
 }
 
