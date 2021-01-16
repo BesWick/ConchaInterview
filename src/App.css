@@ -11,6 +11,18 @@
   transform: translate(-50%, -50%);
 }
 
+.usersPage{
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
 
 .container {
   font-family: 'Amaranth', sans-serif;
@@ -37,7 +49,7 @@
   box-shadow: 0 1px 10px 0 rgba(0,0,0,.08);
 
 }
-a.signoutBtn{
+.signoutBtn{
   /* text-transform: uppercase; */
   align-self: flex-end;
   cursor: pointer;
@@ -55,17 +67,19 @@ a.signoutBtn{
   transition: all 0.2s;
   }
   
-  a.signoutBtn:hover{
+  .signoutBtn:hover{
   color:#000000;
   background-color:#FFFFFF;
   }
   @media all and (max-width:30em){
-   a.signoutBtn{
+   .signoutBtn{
   display:block;
   margin:0.4em auto;
   }
   }
-
+  .rightSide{
+    display:flex;
+  }
 
 
 
