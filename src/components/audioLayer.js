@@ -1,6 +1,6 @@
 //Phase 1; get a audio player
 //Phase 2: pass audio to web audio
-import starwar from '../assets/starwars.wav'
+import soundFile from '../assets/backgroundnoise.wav'
 import React, { useEffect, useRef } from 'react'
 import Audio from './AudioNodes'
 import Filter from './filter/filter'
@@ -62,7 +62,7 @@ function AudioLayer() {
             <div className='player'>
                 <audio
                     controls
-                    src={starwar}
+                    src={soundFile}
                     ref={audioElement}
                     onPlay={() => Audio.context.resume()}>
                     Your browser does not support the
