@@ -33,7 +33,6 @@ axios.interceptors.request.use(
         const token = localStorage.getItem('token')
         console.log('CONFIG TOKEN', token)
         if (token) {
-            console.log('YESSS with token', token)
             config.headers.authorization = `Bearer ${token}`
         }
         return config
@@ -56,9 +55,6 @@ function App() {
                 console.log(data)
                 localStorage.setItem('token', data.key)
                 setJwt(data.key)
-                if (jwt) {
-                    console.log('KEY:', data.key, jwt)
-                }
             } catch (err) {
                 console.log(err.message)
             }
@@ -70,9 +66,6 @@ function App() {
             .auth()
             .onAuthStateChanged((user) => {
                 if (user && jwt) {
-                    console.log('USER', firebaseApp.auth().currentUser.uid)
-                    console.log('STATE CHANGE', jwt)
-                    console.log('TOKENNN', localStorage.getItem('token'))
                     postUser(user)
                 }
                 setloginUser(!!user)
@@ -90,7 +83,6 @@ function App() {
                 firebase_uid: uid,
                 name: displayName,
             })
-            console.log('POST DATA', data)
         } catch (err) {
             console.log('POST err' + err)
         }

@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './users.css'
 
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 //axios config
 axios.interceptors.request.use(
     (config) => {
@@ -74,14 +72,14 @@ const testData = [
 const API_URL = `https://interviews-backend-api.herokuapp.com/api/v1`
 function UsersList({ toggle }) {
     const [users, setUsers] = useState([])
-
     useEffect(() => {
         getUsers()
     }, [])
 
     const getUsers = async () => {
         try {
-            const data = await axios.get(`${API_URL}/users`)
+            const { data } = await axios.get(`${API_URL}/users`)
+            console.log('DATA', data)
             setUsers(data)
         } catch (err) {
             console.log(err.message)
@@ -91,8 +89,8 @@ function UsersList({ toggle }) {
     return (
         <div className='popUp'>
             <div className='list'>
-                {testData.map((data) => (
-                    <div className='listItem'>
+                {users.map((data) => (
+                    <div key={data.ID} className='listItem'>
                         <div id='userinfo'>{data.name}</div>
                     </div>
                 ))}
