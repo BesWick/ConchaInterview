@@ -1,4 +1,4 @@
-#ConchaLab Take Home Project
+# ConchaLab Take Home Project
 
 An app that gives authenticated users (Firebase Auth) the ability to modify an audio file in 3 different frequency ranges:
 
@@ -10,21 +10,21 @@ An app that gives authenticated users (Firebase Auth) the ability to modify an a
 
 and see all currently logged in users.
 
-###Getting Started
+## Getting Started
 
-###Installing
+### Installing
 
 ```
 npm install
 ```
 
-###Running
+### Running
 
 ```
 npm start
 ```
 
-##Built With
+## Built With
 
 -   React
 -   Web Audio API
