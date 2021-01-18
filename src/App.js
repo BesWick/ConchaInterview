@@ -31,7 +31,7 @@ const API_URL = `https://interviews-backend-api.herokuapp.com/api/v1`
 axios.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token')
-        console.log('CONFIG TOKEN', token)
+        // console.log('CONFIG TOKEN', token)
         if (token) {
             config.headers.authorization = `Bearer ${token}`
         }
