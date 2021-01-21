@@ -1,6 +1,6 @@
 //Phase 1; get a audio player
 //Phase 2: pass audio to web audio
-import soundFile from '../assets/backgroundnoise.wav'
+import soundFile from '../assets/starwars.wav'
 import React, { useEffect, useRef } from 'react'
 import Audio from './AudioNodes'
 import Filter from './filter/filter'
@@ -20,7 +20,7 @@ function AudioLayer() {
 
         Audio.midFilter.type = 'peaking'
         Audio.midFilter.frequency.value = 2500.0
-        Audio.midFilter.Q.value = 1400.0
+        Audio.midFilter.Q.value = 10.0
         Audio.midFilter.gain.value = 0.0
 
         Audio.highFilter.type = 'highshelf'
